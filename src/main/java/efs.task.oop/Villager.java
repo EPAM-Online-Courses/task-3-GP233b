@@ -1,15 +1,17 @@
+package efs.task.oop;
+
 public class Villager implements Fighter{
 
     protected String name;
     protected int age;
     protected int health;
-    protected int damage;
+    //protected int damage;
 
     public Villager(String name, int age) {
         this.name = name;
         this.age = age;
         this.health = 100;
-        this.damage = (int) ((100 - age * 0.5) / 10);
+        //this.damage = (int) ((100 - age * 0.5) / 10);
     }
 
     public void sayHello() {
@@ -19,7 +21,9 @@ public class Villager implements Fighter{
 
     @Override
     public void attack(Fighter victim) {
-        victim.takeHit(this.damage);
+        int damage = (int) ((100 - age * 0.5) / 10);
+
+        victim.takeHit(damage);
     }
 
     @Override
@@ -31,6 +35,10 @@ public class Villager implements Fighter{
             this.health = 0;
         }
 
+    }
+
+    public int getHealth() {
+        return health;
     }
 }
 
